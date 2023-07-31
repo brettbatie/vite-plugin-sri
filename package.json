@@ -2,7 +2,7 @@
   "name": "@vividlemon/vite-plugin-sri",
   "displayName": "vite-plugin-sri",
   "description": "A Vite plugin that adds subresource integrity hashes to your index.html file at build time.",
-  "version": "0.0.6",
+  "version": "1.0.0",
   "license": "MIT",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
