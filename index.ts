@@ -105,7 +105,7 @@ export default function sri(): Plugin {
           }
 
           if (source)
-            element.attribs.integrity = `sha384-${createHash('sha384')
+            element.attribs.integrity = `sha512-${createHash('sha512')
               .update(source)
               .digest()
               .toString('base64')}`
