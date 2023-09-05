@@ -2,21 +2,23 @@
   "name": "@vividlemon/vite-plugin-sri",
   "displayName": "vite-plugin-sri",
   "description": "A Vite plugin that adds subresource integrity hashes to your index.html file at build time.",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "MIT",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "exports": {
-    ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+    "import": {
+      "types": "./dist/index.d.mts",
+      "default": "./dist/index.mjs"
+    },
+    "require": {
+      "types": "./dist/index.d.cts",
+      "default": "./dist/index.cjs"
     }
   },
   "files": [
     "dist"
   ],
-  "types": "./dist/index.d.ts",
   "private": false,
   "scripts": {
     "prepare": "husky install",
@@ -26,30 +28,29 @@
     "lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore --fix src",
     "test:lint": "eslint --ext .js,.ts,.vue --ignore-path .gitignore src",
     "test:lint:ci": "pnpm run test:lint",
-    "test": "pnpm run test:lint && pnpm run test:unit"
+    "test": "pnpm run test:lint && pnpm run test:unit:ci"
   },
   "dependencies": {
     "cheerio": "^1.0.0-rc.12"
   },
   "devDependencies": {
     "@rollup/plugin-terser": "^0.4.3",
-    "@rollup/plugin-typescript": "^11.1.2",
-    "@rushstack/eslint-patch": "^1.3.2",
-    "@types/node": "^20.4.5",
-    "@typescript-eslint/eslint-plugin": "^6.2.1",
-    "@typescript-eslint/parser": "^6.2.1",
-    "c8": "^8.0.1",
-    "eslint": "^8.46.0",
-    "eslint-define-config": "^1.22.0",
+    "@rollup/plugin-typescript": "^11.1.3",
+    "@rushstack/eslint-patch": "^1.3.3",
+    "@types/node": "^20.5.9",
+    "@typescript-eslint/eslint-plugin": "^6.6.0",
+    "@typescript-eslint/parser": "^6.6.0",
+    "eslint": "^8.48.0",
+    "eslint-define-config": "^1.23.0",
     "eslint-plugin-prettier": "^5.0.0",
     "husky": "^8.0.3",
-    "lint-staged": "^13.2.3",
-    "prettier": "^3.0.0",
-    "rollup": "^3.27.0",
-    "rollup-plugin-dts": "^5.3.1",
-    "typescript": "^5.1.6",
-    "vite": "^4.4.7",
-    "vitest": "^0.33.0"
+    "lint-staged": "^14.0.1",
+    "prettier": "^3.0.3",
+    "rollup": "^3.28.1",
+    "rollup-plugin-dts": "^6.0.1",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.3"
   },
   "repository": {
     "type": "git",
@@ -70,5 +71,5 @@
     "*.{js,ts}": "eslint --cache --fix",
     "*": "prettier --write --ignore-unknown"
   },
-  "packageManager": "pnpm@8.6.11"
+  "packageManager": "pnpm@8.7.3"
 }

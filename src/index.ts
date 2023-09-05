@@ -1,8 +1,8 @@
 import { type Element, load } from "cheerio";
 import type { Plugin, ResolvedConfig } from "vite";
-import { writeFileSync, readFileSync } from "fs";
+import { writeFileSync, readFileSync } from "node:fs";
 import { createHash } from "node:crypto";
-import { resolve } from "path";
+import { resolve } from "node:path";
 import type { OutputBundle } from "rollup";
 
 export default (): Plugin => {

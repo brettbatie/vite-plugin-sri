@@ -19,7 +19,7 @@ export default defineConfig([
         interop: "default",
       },
       {
-        file: "dist/index.js",
+        file: "dist/index.mjs",
         format: "esm",
         exports: "default",
         generatedCode: {
@@ -35,9 +35,16 @@ export default defineConfig([
   },
   {
     input: "./src/index.ts",
-    output: {
-      file: "./dist/index.d.ts",
-    },
+    output: [
+      {
+        file: "./dist/index.d.mts",
+        format: "esm",
+      },
+      {
+        file: "./dist/index.d.cts",
+        format: "cjs",
+      },
+    ],
     external: () => true,
     plugins: [dts()],
   },
