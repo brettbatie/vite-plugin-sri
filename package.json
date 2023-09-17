@@ -71,5 +71,5 @@
     "*.{js,ts}": "eslint --cache --fix",
     "*": "prettier --write --ignore-unknown"
   },
-  "packageManager": "pnpm@8.7.3"
+  "packageManager": "pnpm@8.7.5"
 }

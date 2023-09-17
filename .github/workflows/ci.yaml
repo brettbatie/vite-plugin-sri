@@ -24,7 +24,7 @@ jobs:
           node-version: 20.x
 
       - name: Install PNPM
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         id: pnpm-install
 
       - name: Get PNPM Store Directory
@@ -60,7 +60,7 @@ jobs:
           node-version: 20.x
 
       - name: Install PNPM
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         id: pnpm-install
 
       - name: Get PNPM Store Directory
@@ -96,7 +96,7 @@ jobs:
           node-version: 20.x
 
       - name: Install PNPM
-        uses: pnpm/action-setup@v2.2.4
+        uses: pnpm/action-setup@v2
         id: pnpm-install
 
       - name: Get PNPM Store Directory
