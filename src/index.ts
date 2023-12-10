@@ -41,12 +41,16 @@ export default (): Plugin => {
         source: string;
       }>;
 
-      htmls.forEach(async ({ name, source: html }) => {
+      for (const { name, source: html } of htmls) {
         const $ = load(html as string);
 
         // Implement SRI for scripts and stylesheets.
-        const scripts = $("script").filter("[src]");
-        const stylesheets = $("link").filter("[href]");
+        const scripts = $("script").filter(
+          '[src]:not([src^="http"]):not([src^="//"])',
+        );
+        const stylesheets = $("link[rel=stylesheet]").filter(
+          '[href]:not([href^="http"]):not([href^="//"])',
+        );
 
         const calculateIntegrityHashes = async (element: Element) => {
           let source: string | Uint8Array | undefined;
@@ -85,7 +89,7 @@ export default (): Plugin => {
               .digest()
               .toString("base64")}`;
 
-          if (element.attribs.crossorigin === void 0) {
+          if (!element.attribs.crossorigin) {
             // 在进行跨域资源请求时，integrity必须配合crossorigin使用，不然浏览器会丢弃这个资源的请求
             // https://developer.mozilla.org/zh-CN/docs/Web/HTML/Attributes/crossorigin
             element.attribs.crossorigin = "anonymous";
@@ -105,7 +109,7 @@ export default (): Plugin => {
           resolve(config?.root as string, config?.build.outDir as string, name),
           $.html(),
         );
-      });
+      }
     },
   };
 };
